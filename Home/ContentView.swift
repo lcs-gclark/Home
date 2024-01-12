@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    //MARK: stored properties
+    let firstGradientColours = Gradient(colors: [Color.blue, Color.purple, Color.yellow])
+    
+    //MARK: computed properties
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+           
+            //background
+            LinearGradient(
+                gradient: firstGradientColours,
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+            
+            //forground
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
